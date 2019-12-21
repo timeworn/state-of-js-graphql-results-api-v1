@@ -18,7 +18,6 @@ import {
     computeToolsExperience,
     computeToolsExperienceRanking,
     computeToolsMatrix,
-    computeSalaryByJobTitle,
 } from './src/analysis/index.mjs'
 
 const run = async () => {
@@ -30,7 +29,16 @@ const run = async () => {
     await mongoClient.connect()
     const db = mongoClient.db(process.env.MONGO_DB_NAME)
 
-    const res = await computeSalaryByJobTitle(db, 2019, { survey: 'js', year: 2019 })
+    const res = await computeToolsMatrix(db, [
+        'jest',
+        'mocha',
+        'storybook',
+        'cypress',
+        'enzyme',
+        'ava',
+        'jasmine',
+        'puppeteer'
+    ], 'would_use', 'company_size', 2019, { survey: 'js', year: 2019 })
     console.log(util.inspect(res, { depth: null, colors: true }))
 
     await mongoClient.close()
