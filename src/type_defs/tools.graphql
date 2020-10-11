@@ -44,45 +44,6 @@ enum ToolID {
     ionic
     nwjs
     expo
-    # CSS Pre-/Post-processors
-    sass
-    less
-    post_css
-    stylus
-    # CSS frameworks
-    bootstrap
-    materialize_css
-    ant_design
-    semantic_ui
-    bulma
-    foundation
-    ui_kit
-    tachyons
-    primer
-    tailwind_css
-    pure_css
-    skeleton
-    spectre
-    # CSS methodologies
-    bem
-    atomic_css
-    oocss
-    smacss
-    it_css
-    cube_css
-    # CSS in JS
-    styled_components
-    jss
-    styled_jsx
-    radium
-    emotion
-    css_modules
-    styled_system
-    stitches
-    styletron
-    fela
-    linaria
-    astroturf
 }
 
 """

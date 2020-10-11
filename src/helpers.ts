@@ -3,36 +3,9 @@ import { Entity } from './types'
 import entities from './data/entities.yml'
 import projects from './data/projects.yml'
 import typeDefs from './type_defs/schema.graphql'
-import features from './data/features.yml'
+import locales from './data/i18n'
 
 const allEntities: Entity[] = [...projects, ...entities]
-
-export const getEntities = ({
-    type,
-    context,
-    tag
-}: {
-    type: string
-    context: string
-    tag: string
-}) => {
-    let allEntities = [
-        entities.map((e: Entity) => ({ ...e, type: 'entity' })),
-        // projects.map(e => ({ ...e, type: 'project' })),
-        features.map(e => ({ ...e, type: 'feature' }))
-    ].flat()
-
-    if (type) {
-        allEntities = allEntities.filter(e => e.type === type)
-    }
-    if (context) {
-        allEntities = allEntities.filter(e => e.context === context)
-    }
-    if (tag) {
-        allEntities = allEntities.filter(e => e.tags && e.tags.includes(tag))
-    }
-    return allEntities
-}
 
 // Look up entities by id, name, or aliases (case-insensitive)
 export const getEntity = ({ id }: { id: string }) => {
@@ -69,4 +42,13 @@ export const getGraphQLEnumValues = (name: string): string[] => {
     }
 
     return enumDef.values!.map(v => v.name.value)
+}
+
+export const getTranslation = (key: string, locale: string) => {
+    const localeObject = locales.find(l => l.locale === locale)
+    if (localeObject) {
+        const allStrings = localeObject.stringFiles.map((s: any) => s.translations).flat()
+        const translation = allStrings.find((s: any) => s.key === key)
+        return translation
+    }
 }

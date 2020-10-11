@@ -3,7 +3,6 @@ import { MDN } from './mdn'
 
 export interface FeatureBucket {
     id: string
-    name: string
     count: number
     percentage: number
 }
@@ -13,12 +12,6 @@ export interface YearFeature {
     total: number
     completion: Completion
     buckets: FeatureBucket[]
-}
-
-export interface FeatureExperienceBucket {
-    id: string
-    count: number
-    percentage: number
 }
 
 export interface FeatureExperience {

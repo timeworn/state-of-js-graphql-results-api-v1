@@ -30,7 +30,7 @@ enum FeatureID {
     pwa
     wasm
 
-    # CSS layout features
+    # CSS features
     grid
     subgrid
     regions
@@ -42,7 +42,6 @@ enum FeatureID {
     logical_properties
     aspect_ratio
     content_visibility
-    # CSS shapes & graphics features
     shapes
     object_fit
     clip_path
@@ -50,15 +49,13 @@ enum FeatureID {
     blend_modes
     filter_effects
     backdrop_filter
-    # CSS interactions features
     scroll_snap
     overscroll_behavior
     overflow_anchor
     touch_action
     pointer_events
-    # CSS typography features
     web_fonts
-    variable_fonts
+    variables_fonts
     line_breaking
     font_variant
     initial_letter
@@ -67,16 +64,13 @@ enum FeatureID {
     line_clamp
     leading_trim
     direction
-    # CSS animations & transforms features
     transitions
     transforms
     animations
     perspective
-    # CSS media queries features
     prefers_reduced_motion
     prefers_color_scheme
     color_gamut
-    # CSS other features
     variables
     feature_support_queries
     containment
@@ -84,86 +78,13 @@ enum FeatureID {
     calc
     houdini
     comparison_functions
-    # units_selectors
-    px
-    pt
-    percent
-    em
-    rem
-    vh_vw
-    vmin_vmax
-    ch
-    ex
-    mm
-    cm
-    in
-    # pseudo_elements
-    before
-    after
-    first_line
-    first_letter
-    selection
-    placeholder
-    marker
-    backdrop
-    # combinators
-    descendant
-    child
-    next_sibling
-    subsequent_sibling
-    # tree_document_structure
-    root
-    empty
-    not
-    nth_child
-    nth_last_child
-    first_child
-    last_child
-    only_child
-    nth_of_type
-    nth_last_of_type
-    first_of_type
-    last_of_type
-    only_of_type
-    lang
-    is
-    where
-    # attributes
-    presence
-    equality
-    starts_with
-    ends_with
-    contains_word
-    contains_substring
-    # links_urls
-    any_link
-    link_visited
-    local_link
-    target
-    # interaction
-    hover
-    active
-    focus
-    focus_within
-    focus_visible
-    # form_controls
-    enabled_disabled
-    read_only_write
-    placeholder_shown
-    default
-    checked
-    indeterminate
-    valid_invalid
-    user_invalid
-    in_out_range
-    required_optional
 }
 
 """
-A feature experience datapoint
+A feature usage datapoint
 """
-type FeatureExperienceBucket @cacheControl(maxAge: 600) {
-    id: FeatureExperienceID
+type FeatureBucket @cacheControl(maxAge: 600) {
+    id: String
     count: Int
     percentage: Float
 }
@@ -178,7 +99,7 @@ type YearFeature @cacheControl(maxAge: 600) {
     """
     total: Int
     completion: Completion
-    buckets: [FeatureExperienceBucket] @cacheControl(maxAge: 600)
+    buckets: [FeatureBucket] @cacheControl(maxAge: 600)
 }
 
 type FeatureExperience @cacheControl(maxAge: 600) {

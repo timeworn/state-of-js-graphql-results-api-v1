@@ -102,14 +102,6 @@ export default {
                     filters
                 })
             })),
-        featuresOthers: (
-            survey: SurveyConfig,
-            { id, filters }: { id: string; filters?: Filters }
-        ) => ({
-            survey,
-            id,
-            filters
-        }),
         opinion: (survey: SurveyConfig, { id, filters }: { id: string; filters?: Filters }) => ({
             survey,
             id,

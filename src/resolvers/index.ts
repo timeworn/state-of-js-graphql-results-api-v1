@@ -5,7 +5,6 @@ import features from './features'
 import matrices from './matrices'
 import categories from './categories'
 import tools from './tools'
-import otherFeatures from './other_features'
 import otherTools from './other_tools'
 import resources from './resources'
 import entities from './entities'
@@ -19,7 +18,6 @@ export default {
     ...features,
     ...matrices,
     ...tools,
-    ...otherFeatures,
     ...otherTools,
     ...resources,
     ...entities,

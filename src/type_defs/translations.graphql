@@ -1,29 +1,10 @@
-# enum LocaleID {
-#     en_US
-#     it_IT
-#     zh_Hans
-# }
-
-enum Contexts {
-    projects
-    features
-    entities
-    common
-    homepage
-    results
-    state_of_js
-    state_of_css
-    
+enum LocaleID {
+    en_US
+    it_IT
+    zh_Hans
 }
 
-type TranslationString @cacheControl(maxAge: 600) {
+type Translation @cacheControl(maxAge: 600) {
     key: String
     t: String
-    context: String
-}
-
-type Locale @cacheControl(maxAge: 600) {
-    id: String
-    translators: [String]
-    strings: [TranslationString]
 }
