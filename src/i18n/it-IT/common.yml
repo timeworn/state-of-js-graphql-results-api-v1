@@ -121,35 +121,6 @@ translations:
       t: Account
 
     ###########################################################################
-    # Accounts
-    ###########################################################################
-
-    - key: accounts.sign_up
-      t: Registrati
-    - key: accounts.sign_in
-      t: Accedi
-    - key: accounts.sign_out
-      t: Disconnettiti
-    - key: accounts.cancel
-      t: Cancella
-    - key: accounts.email
-      t: Email
-    - key: accounts.enter_email
-      t: Inserisci Email
-
-    - key: accounts.please_pick_password
-      t: Scegli una nuova password per continuare.
-    - key: accounts.please_log_in
-      t: Accedi or registrati per iniziare.
-    - key: accounts.logged_in_as
-      t: Connesso come {email}
-    - key: accounts.questions
-      t: >
-          Se hai domande riguadardanti l'uso dei tuoi dati, o se vorresti la 
-          rimozione degli stessi dai nostri registri,
-          <a href="mailto:hello@stateofjs.com">Contattaci</a>.
-
-    ###########################################################################
     # Sections
     ###########################################################################
 
@@ -402,7 +373,7 @@ translations:
     - key: options.backend_proficiency.2
       t: Essere in grado di sviluppare applicazioni usando framework per esistenti (Rails, Laravel, ecc.)
     - key: options.backend_proficiency.3
-      t: Essere in grado di impostare da zero un back-end completo (Go, Node, ecc.)
+      t: Essere in grado di impostare da zero un back-end completo (Go, Node.js, ecc.)
     - key: options.backend_proficiency.4
       t: Essere in grado di gestire architetture multi-server o di micro servizi complesse
 
