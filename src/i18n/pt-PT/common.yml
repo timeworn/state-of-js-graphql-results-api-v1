@@ -123,7 +123,36 @@ translations:
       t: Inquéritos
     - key: nav.account
       t: Conta
-  
+
+    ###########################################################################
+    # Accounts
+    ###########################################################################
+
+    - key: accounts.sign_up
+      t: Registar
+    - key: accounts.sign_in
+      t: Entrar
+    - key: accounts.sign_out
+      t: Sair
+    - key: accounts.cancel
+      t: Cancelar
+    - key: accounts.email
+      t: E-mail
+    - key: accounts.enter_email
+      t: Introduzir E-mail
+
+    - key: accounts.please_pick_password
+      t: Por favor escolha uma nova senha para continuar.
+    - key: accounts.please_log_in
+      t: Por favor, inicie sessão ou registe-se para começar.
+    - key: accounts.logged_in_as
+      t: Ligado como {email}
+    - key: accounts.questions
+      t: >
+          Se tiver alguma dúvida sobre a forma como utilizamos os seus dados, ou se desejar
+          para remover os seus dados dos nossos registos,
+          por favor <a href="mailto:hello@stateofjs.com">entrar em contacto</a>.
+
     ###########################################################################
     # Sections
     ###########################################################################
@@ -426,6 +455,26 @@ translations:
       t: Biracial
     - key: options.race_ethnicity.native_american_islander_australian
       t: Nativo Americano, Ilhas do Pacífico, ou Australiano Indígena
+
+    # Form Factors
+    - key: options.form_factors.desktop # TODO
+      t: Desktop
+    - key: options.form_factors.smartphone # TODO
+      t: Smartphone
+    - key: options.form_factors.feature_phone # TODO
+      t: Feature phone
+    - key: options.form_factors.tablet # TODO
+      t: Tablet
+    - key: options.form_factors.smart_watch # TODO
+      t: Smartwatch
+    - key: options.form_factors.tv # TODO
+      t: TV
+    - key: options.form_factors.gaming_console # TODO
+      t: Gaming console
+    - key: options.form_factors.screen_reader # TODO
+      t: Screen reader
+    - key: options.form_factors.print # TODO
+      t: Print
 
     ###########################################################################
     # Tools
