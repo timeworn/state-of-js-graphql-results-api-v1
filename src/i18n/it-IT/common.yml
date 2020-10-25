@@ -168,7 +168,7 @@ translations:
       t: Lo evito quasi sempre
     - key: options.patterns.use_sparingly
       t: Lo uso con parsimonia
-    - key: options.patterns.use_neutral
+    - key: optionspatterns..use_neutral
       t: Neutrale
     - key: options.patterns.use_frequently
       t: Lo uso frequentemente
@@ -188,15 +188,15 @@ translations:
       t: 👎 L'ho usato > Non lo userei più
 
     # tools experience (short versions)
-    - key: options.tools.never_heard.short
+    - key: options.tools.never_heard
       t: Mai sentito
-    - key: options.tools.interested.short
+    - key: options.tools.interested
       t: Interessato
-    - key: options.tools.not_interested.short
+    - key: options.tools.not_interested
       t: Non interessato
-    - key: options.tools.would_use.short
+    - key: options.tools.would_use
       t: Lo userei ancora
-    - key: options.tools.would_not_use.short
+    - key: options.tools.would_not_use
       t: Non lo userei più
 
     # happiness

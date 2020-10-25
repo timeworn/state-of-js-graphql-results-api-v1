@@ -406,23 +406,23 @@ translations:
 
     # Race & Ethnicity
 
-    - key: options.race_ethnicity.white_european # TODO
+    - key: white_european # TODO
       t: White or of European descent
-    - key: options.race_ethnicity.south_asian # TODO
+    - key: south_asian # TODO
       t: South Asian
-    - key: options.race_ethnicity.hispanic_latin # TODO
+    - key: hispanic_latin # TODO
       t: Hispanic or Latino/Latina
-    - key: options.race_ethnicity.east_asian # TODO
+    - key: east_asian # TODO
       t: East Asian
-    - key: options.race_ethnicity.middle_eastern # TODO
+    - key: middle_eastern # TODO
       t: Middle Eastern
-    - key: options.race_ethnicity.black_african # TODO
+    - key: black_african # TODO
       t: Black or of African descent
-    - key: options.race_ethnicity.multiracial # TODO
+    - key: multiracial # TODO
       t: Multiracial
-    - key: options.race_ethnicity.biracial # TODO
+    - key: biracial # TODO
       t: Biracial
-    - key: options.race_ethnicity.native_american_islander_australian # TODO
+    - key: native_american_islander_australian # TODO
       t: Native American, Pacific Islander, or Indigenous Australian
 
     # Form Factors
@@ -528,49 +528,49 @@ translations:
     # Other Tools
     ###########################################################################
 
-    - key: tools_others.text_editors
+    - key: other_tools.text_editors
       t: Text-Editors
-    - key: tools_others.text_editors.description
+    - key: other_tools.text_editors.description
       t: Vilka text-editor(s) använder du regelbundet?
-    - key: tools_others.text_editors.others
+    - key: other_tools.text_editors.others
       t: Andra text-editors
-    - key: tools_others.text_editors.others.description
+    - key: other_tools.text_editors.others.description
       t: Övriga svar (fritextfält).
 
-    - key: tools_others.utilities
+    - key: other_tools.utilities
       t: Verktygsbibliotek
-    - key: tools_others.utilities.description
+    - key: other_tools.utilities.description
       t: Vilka verktygsbibliotek använder du regelbundet?
-    - key: tools_others.utilities.others
+    - key: other_tools.utilities.others
       t: Andra verktygsbibliotek
-    - key: tools_others.utilities.others.description
+    - key: other_tools.utilities.others.description
       t: Övriga svar (fritextfält).
 
-    - key: tools_others.browsers
+    - key: other_tools.browsers
       t: Webbläsare
-    - key: tools_others.browsers.description
+    - key: other_tools.browsers.description
       t: Vilka webbläsare jobbar du i primärt under initial utveckling?
-    - key: tools_others.browsers.others
+    - key: other_tools.browsers.others
       t: Övriga webbläsare
-    - key: tools_others.browsers.others.description
+    - key: other_tools.browsers.others.description
       t: Övriga svar (fritextfält).
 
-    - key: tools_others.build_tools
+    - key: other_tools.build_tools
       t: Byggverktyg
-    - key: tools_others.build_tools.description
+    - key: other_tools.build_tools.description
       t: Vilka byggverktyg använder du?
-    - key: tools_others.build_tools.others
+    - key: other_tools.build_tools.others
       t: Övriga byggverktyg
-    - key: tools_others.build_tools.others.description
+    - key: other_tools.build_tools.others.description
       t: Övriga svar (fritextfält).
 
-    - key: tools_others.non_js_languages
+    - key: other_tools.non_js_languages
       t: Språk Utöver JavaScript
-    - key: tools_others.non_js_languages.description
+    - key: other_tools.non_js_languages.description
       t: Vilka andra programmeringsspråk använder du?
-    - key: tools_others.non_js_languages.others
+    - key: other_tools.non_js_languages.others
       t: Andra språk
-    - key: tools_others.non_js_languages.others.description
+    - key: other_tools.non_js_languages.others.description
       t: Övriga svar (fritextfält).
 
     ###########################################################################
