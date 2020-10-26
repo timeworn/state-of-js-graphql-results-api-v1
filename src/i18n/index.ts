@@ -5,16 +5,21 @@ import { Locale } from '../types'
 const locales: Locale[] = localesYAML.map((l: any) => ({ ...l, stringFiles: [] }))
 
 const localeDirectories: any = {
+    'cs-CZ': require.context('./cs-CZ/', true, /\.yml$/),
+    'de-DE': require.context('./de-DE/', true, /\.yml$/),
     'en-US': require.context('./en-US/', true, /\.yml$/),
     'es-ES': require.context('./es-ES/', true, /\.yml$/),
     'fr-FR': require.context('./fr-FR/', true, /\.yml$/),
     'hi-IN': require.context('./hi-IN/', true, /\.yml$/),
+    'id-ID': require.context('./id-ID/', true, /\.yml$/),
     'it-IT': require.context('./it-IT/', true, /\.yml$/),
     'pl-PL': require.context('./pl-PL/', true, /\.yml$/),
     'pt-PT': require.context('./pt-PT/', true, /\.yml$/),
     'ru-RU': require.context('./ru-RU/', true, /\.yml$/),
     'sv-SE': require.context('./sv-SE/', true, /\.yml$/),
-    'zh-Hans': require.context('./zh-Hans/', true, /\.yml$/)
+    'tr-TR': require.context('./tr-TR/', true, /\.yml$/),
+    'zh-Hans': require.context('./zh-Hans/', true, /\.yml$/),
+    'zh-Hant': require.context('./zh-Hant/', true, /\.yml$/)
 }
 
 locales.forEach((locale: Locale) => {
