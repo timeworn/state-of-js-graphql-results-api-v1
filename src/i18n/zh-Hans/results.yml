@@ -8,27 +8,27 @@ translations:
     # Features
     ###########################################################################
 
-    - key: features.learn_more #
-      t: 了解更多 (MDN)
-    - key: features.mdn_link
+    - key: features.learn_more # TODO
+      t: Learn More (MDN)
+    - key: features.mdn_link # TODO
       t: MDN
-    - key: features.caniuse_link
+    - key: features.caniuse_link # TODO
       t: CanIUse
-    - key: features.specification_link
-      t: W3C 标准
+    - key: features.specification_link # TODO
+      t: W3C Specification
 
     ###########################################################################
     # Tools & Methodologies
     ###########################################################################
 
     # general
-    - key: tools.links
-      t: 关联
-    - key: tools.github_link
+    - key: tools.links # TODO
+      t: Links
+    - key: tools.github_link # TODO
       t: GitHub
-    - key: tools.github_stars
+    - key: tools.github_stars # TODO
       t: stars
-    - key: tools.homepage_link
-      t: 首页
-    - key: tools.npm_link
+    - key: tools.homepage_link # TODO
+      t: Homepage
+    - key: tools.npm_link # TODO
       t: NPM

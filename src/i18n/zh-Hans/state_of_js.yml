@@ -1,53 +1,55 @@
-locale: zh-Hans
+locale: ADD LOCALE HERE
 namespace: js
 translations:
     ###########################################################################
     # General
     ###########################################################################
 
-    - key: general.survey_intro_js2019
+    - key: general.survey_intro_js2019 # TODO
       t: >
           The JavaScript world could use a bit of classification.
 
 
-          自2016年以来，该调查每年从20,000多名开发人员那里获取了数据，以确定当前和未来到来的趋势。
+          Since 2016, this survey has collected 
+          data from over 20,000 developers each year to identify current and upcoming trends.
 
 
-          参加调查并帮助我们寻找开发人员接下来需要学习的库，满意度最高的库等等。
+          Take the survey and help us find out which libraries developers 
+          want to learn next, which have the best satisfaction ratings, and much more.
 
     ###########################################################################
     # Sections
     ###########################################################################
 
-    - key: sections.syntax.title
-      t: 语法
-    - key: sections.syntax.description
-      t: JavaScript的语法。
+    - key: sections.syntax.title # TODO
+      t: Syntax
+    - key: sections.syntax.description # TODO
+      t: The grammar of JavaScript.
 
-    - key: sections.language.title
-      t: 语言
-    - key: sections.language.description
-      t: JavaScript 的词汇表。
+    - key: sections.language.title # TODO
+      t: Language
+    - key: sections.language.description # TODO
+      t: The vocabulary of JavaScript.
 
-    - key: sections.data_structures.title
-      t: 数据结构
-    - key: sections.data_structures.description
-      t: 如何存储和操作数据。
+    - key: sections.data_structures.title # TODO
+      t: Data Structures
+    - key: sections.data_structures.description # TODO
+      t: How you store and manipulate data.
 
-    - key: sections.browser_apis.title
-      t: 浏览器 API
-    - key: sections.browser_apis.description
-      t: 浏览器提供的功能。
+    - key: sections.browser_apis.title # TODO
+      t: Browser APIs
+    - key: sections.browser_apis.description # TODO
+      t: The features provided by the browser.
 
-    - key: sections.other_features.title
-      t: 其他特征
-    - key: sections.other_features.description
-      t: 其他技术特征
+    - key: sections.other_features.title # TODO
+      t: Other Features
+    - key: sections.other_features.description # TODO
+      t: Other technologies and patterns
 
-    - key: sections.patterns.title
-      t: 方式
-    - key: sections.patterns.description
-      t: 你喜欢如何编写代码？
+    - key: sections.patterns.title # TODO
+      t: Patterns
+    - key: sections.patterns.description # TODO
+      t: How you prefer writing code
 
     - key: sections.javascript_flavors.title # TODO
       t: JavaScript Flavors
@@ -62,7 +64,7 @@ translations:
     - key: sections.datalayer.title # TODO
       t: Data Layer
     - key: sections.datalayer.description # TODO
-      t: Loading and managing data in your app # TODO
+      t: Loading and managing data in your app
 
     - key: sections.back_end_frameworks.title # TODO
       t: Back-end Frameworks
@@ -146,35 +148,35 @@ translations:
       t: Array.prototype.flat
 
     # browser apis
-    - key: features.service_workers
+    - key: features.service_workers # TODO
       t: Service Workers
-    - key: features.local_storage
+    - key: features.local_storage # TODO
       t: LocalStorage
-    - key: features.i18n
+    - key: features.i18n # TODO
       t: i18n
     - key: features.web_components # TODO
       t: Web Components
     - key: features.web_audio # TODO
       t: Web Audio API
-    - key: features.webgl
+    - key: features.webgl # TODO
       t: WebGL
     - key: features.web_animations # TODO
       t: Web Animations API
-    - key: features.webrtc
+    - key: features.webrtc # TODO
       t: WebRTC
     - key: features.web_speech # TODO
       t: Web Speech API
-    - key: features.webvr
+    - key: features.webvr # TODO
       t: WebVR
-    - key: features.websocket
+    - key: features.websocket # TODO
       t: Websocket
-    - key: features.fetch
+    - key: features.fetch # TODO
       t: Fetch API
 
     # other features
     - key: features.pwa # TODO
       t: Progressive Web Apps (PWA)
-    - key: features.wasm
+    - key: features.wasm # TODO
       t: WebAssembly (WASM)
 
     # patterns
