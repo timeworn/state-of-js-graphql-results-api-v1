@@ -3,9 +3,8 @@ import { Db } from 'mongodb'
 import config from '../config'
 import { ratioToPercentage, appendCompletionToYearlyResults } from './common'
 import { getEntity } from '../helpers'
-import { Completion, SurveyConfig } from '../types'
+import { SurveyConfig } from '../types'
 import { Filters, generateFiltersQuery } from '../filters'
-import { computeCompletionByYear } from './generic'
 
 interface ExperienceBucket {
     id: string
@@ -19,18 +18,6 @@ const computeAwareness = (buckets: ExperienceBucket[], total: number) => {
     }
 
     return ratioToPercentage((total - neverHeard.count) / total)
-}
-
-const computeUsage = (buckets: ExperienceBucket[]) => {
-    const interestedCount = buckets.find(bucket => bucket.id === 'interested')?.count ?? 0
-    const notInterestedCount = buckets.find(bucket => bucket.id === 'not_interested')?.count ?? 0
-    const wouldUseCount = buckets.find(bucket => bucket.id === 'would_use')?.count ?? 0
-    const wouldNotUseCount = buckets.find(bucket => bucket.id === 'would_not_use')?.count ?? 0
-
-    const usageCount = wouldUseCount + wouldNotUseCount
-    const total = usageCount + interestedCount + notInterestedCount
-
-    return ratioToPercentage(usageCount / total)
 }
 
 const computeInterest = (buckets: ExperienceBucket[]) => {
@@ -98,18 +85,14 @@ export async function computeExperienceOverYears(
         ])
         .toArray()
 
-    const completionByYear = await computeCompletionByYear(db, match)
-
     // group by years and add counts
     const experienceByYear = _.orderBy(
         results.reduce<
             Array<{
                 year: number
                 total: number
-                completion: Pick<Completion, 'count'>
-                awarenessUsageInterestSatisfaction: {
+                awarenessInterestSatisfaction: {
                     awareness: number
-                    usage: number
                     interest: number
                     satisfaction: number
                 }
@@ -127,12 +110,8 @@ export async function computeExperienceOverYears(
                 yearBucket = {
                     year: result.year,
                     total: 0,
-                    completion: {
-                        count: completionByYear[result.year]?.total ?? 0
-                    },
-                    awarenessUsageInterestSatisfaction: {
+                    awarenessInterestSatisfaction: {
                         awareness: 0,
-                        usage: 0,
                         interest: 0,
                         satisfaction: 0
                     },
@@ -162,9 +141,8 @@ export async function computeExperienceOverYears(
 
     // compute awareness/interest/satisfaction
     experienceByYear.forEach(bucket => {
-        bucket.awarenessUsageInterestSatisfaction = {
+        bucket.awarenessInterestSatisfaction = {
             awareness: computeAwareness(bucket.buckets, bucket.total),
-            usage: computeUsage(bucket.buckets),
             interest: computeInterest(bucket.buckets),
             satisfaction: computeSatisfaction(bucket.buckets)
         }
@@ -187,7 +165,7 @@ export async function computeExperienceOverYears(
     return appendCompletionToYearlyResults(db, survey, experienceByYear)
 }
 
-const metrics = ['awareness', 'usage', 'interest', 'satisfaction']
+const metrics = ['awareness', 'interest', 'satisfaction']
 
 export async function computeToolsExperienceRanking(
     db: Db,
@@ -200,7 +178,7 @@ export async function computeToolsExperienceRanking(
 
     for (const tool of tools) {
         const toolAllYearsExperience = await computeExperienceOverYears(db, survey, tool, filters)
-        const toolAwarenessUsageInterestSatisfactionOverYears: any[] = []
+        const toolAwarenessInterestSatisfactionOverYears: any[] = []
 
         toolAllYearsExperience.forEach((toolYear: any) => {
             availableYears.push(toolYear.year)
@@ -208,7 +186,6 @@ export async function computeToolsExperienceRanking(
             if (metricByYear[toolYear.year] === undefined) {
                 metricByYear[toolYear.year] = {
                     awareness: [],
-                    usage: [],
                     interest: [],
                     satisfaction: []
                 }
@@ -217,13 +194,13 @@ export async function computeToolsExperienceRanking(
             metrics.forEach(metric => {
                 metricByYear[toolYear.year][metric].push({
                     tool,
-                    percentage: toolYear.awarenessUsageInterestSatisfaction[metric]
+                    percentage: toolYear.awarenessInterestSatisfaction[metric]
                 })
             })
 
-            toolAwarenessUsageInterestSatisfactionOverYears.push({
+            toolAwarenessInterestSatisfactionOverYears.push({
                 year: toolYear.year,
-                ...toolYear.awarenessUsageInterestSatisfaction
+                ...toolYear.awarenessInterestSatisfaction
             })
         })
     }

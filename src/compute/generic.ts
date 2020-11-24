@@ -6,7 +6,6 @@ import { Completion, SurveyConfig } from '../types'
 import { Filters, generateFiltersQuery } from '../filters'
 import { ratioToPercentage, appendCompletionToYearlyResults } from './common'
 import { getEntity } from '../helpers'
-import { getParticipationByYearMap } from './demographics'
 
 interface TermAggregationByYearOptions {
     // filter aggregations
@@ -24,11 +23,6 @@ interface RawResult {
     total: number
 }
 
-interface CompletionResult {
-    year: number
-    total: number
-}
-
 interface TermBucket {
     id: number | string
     entity?: any
@@ -41,7 +35,6 @@ interface TermBucket {
 interface YearAggregations {
     year: number
     total: number
-    completion: Completion
     buckets: TermBucket[]
 }
 
@@ -54,46 +47,6 @@ export async function getSurveyTotals(db: Db, surveyConfig: SurveyConfig, year?:
         selector = { ...selector, year }
     }
     return collection.countDocuments(selector)
-}
-
-export async function computeCompletionByYear(db: Db, match: any): Promise<Record<number, CompletionResult>> {
-    const collection = db.collection(config.mongo.normalized_collection)
-
-    const aggregationPipeline = [
-        {
-            $match: match
-        },
-        {
-            $group: {
-                _id: { year: '$year' },
-                total: {
-                    $sum: 1
-                }
-            }
-        },
-        {
-            $project: {
-                year: '$_id.year',
-                total: 1
-            }
-        }
-    ]
-
-    const completionResults: CompletionResult[] = await collection
-        .aggregate(aggregationPipeline)
-        .toArray()
-
-    console.log(
-        inspect(
-            {
-                aggregationPipeline,
-                completionResults,
-            },
-            { colors: true, depth: null }
-        )
-    )
-
-    return _.keyBy(completionResults, 'year')
 }
 
 export async function computeTermAggregationByYear(
@@ -155,7 +108,7 @@ export async function computeTermAggregationByYear(
             {
                 match,
                 aggregationPipeline,
-                rawResults,
+                rawResults
             },
             { colors: true, depth: null }
         )
@@ -168,25 +121,14 @@ export async function computeTermAggregationByYear(
         return entity ? { ...result, entity } : result
     })
 
-    const totalRespondentsByYear = await getParticipationByYearMap(db, survey)
-    const completionByYear = await computeCompletionByYear(db, match)
-
     // group by years and add counts
     const resultsByYear = _.orderBy(
         resultsWithEntity.reduce((acc: YearAggregations[], result) => {
             let yearBucket = acc.find(b => b.year === result.year)
             if (yearBucket === undefined) {
-                const totalRespondents = totalRespondentsByYear[result.year] ?? 0
-                const completionCount = completionByYear[result.year]?.total ?? 0
-
                 yearBucket = {
                     year: result.year,
-                    total: totalRespondents,
-                    completion: {
-                        total: totalRespondents,
-                        count: completionCount,
-                        percentage: ratioToPercentage(completionCount / totalRespondents)
-                    },
+                    total: 0,
                     buckets: []
                 }
                 acc.push(yearBucket)
@@ -206,8 +148,9 @@ export async function computeTermAggregationByYear(
 
     // compute percentages
     resultsByYear.forEach(year => {
+        year.total = _.sumBy(year.buckets, 'count')
         year.buckets.forEach(bucket => {
-            bucket.percentage = ratioToPercentage(bucket.count / year.completion.total)
+            bucket.percentage = ratioToPercentage(bucket.count / year.total)
         })
     })
 
@@ -219,12 +162,16 @@ export async function computeTermAggregationByYear(
                 const previousYearBucket = previousYear.buckets.find(b => b.id === bucket.id)
                 if (previousYearBucket) {
                     bucket.countDelta = bucket.count - previousYearBucket.count
-                    bucket.percentageDelta =
-                        Math.round(100 * (bucket.percentage - previousYearBucket.percentage)) / 100
+                    bucket.percentageDelta = Math.round(100 * (bucket.percentage - previousYearBucket.percentage))/100
                 }
             })
         }
     })
 
-    return resultsByYear
+    return appendCompletionToYearlyResults<{
+        year: number
+        completion: Completion
+        total: number
+        buckets: TermBucket[]
+    }>(db, survey, resultsByYear)
 }

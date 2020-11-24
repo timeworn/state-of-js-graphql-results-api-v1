@@ -7,9 +7,8 @@ export interface ToolExperienceBucket {
     percentage: number
 }
 
-export interface ToolAwarenessUsageInterestSatisfaction {
+export interface ToolAwarenessInterestSatisfaction {
     awareness: number
-    usage: number
     interest: number
     satisfaction: number
 }
@@ -19,7 +18,7 @@ export interface ToolYearExperience {
     total: number
     completion: Completion
     buckets: ToolExperienceBucket[]
-    awarenessUsageInterestSatisfaction: ToolAwarenessUsageInterestSatisfaction
+    awarenessInterestSatisfaction: ToolAwarenessInterestSatisfaction
 }
 
 export interface ToolExperience {
