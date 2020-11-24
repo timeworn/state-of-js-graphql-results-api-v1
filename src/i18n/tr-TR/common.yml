@@ -84,8 +84,8 @@ translations:
 
           Yanıtlarınız kaydedildi. Yanıtlarınızı anket sona erene kadar görüntüleyebilir ve düzenleyebilirsiniz.
 
-          Ayrıca, bu anketi paylaşarak daha fazla insana ulaşmamıza yardımcı olabilirsiniz. Her katılım, bizim için önemli ve
-          her biri anketimizin daha temsil edici olmasına katkı sağlıyor:
+          Ayrıca, bu anketi paylaşarak daha fazla insana ulaşmamıza yardımcı olabilirsiniz. Her katılım önemli ve
+          ankatimizin daha temsil edici olmasına katkı sağlıyor:
     - key: thanks.learn_more_about
       t: 'Öğrenmek isteyebileceğiniz bazı özellikler:'
     - key: thanks.knowledge_score 
@@ -93,7 +93,7 @@ translations:
     - key: thanks.score_explanation 
       t: >
           Bu ankette bahsedilen <span class="score-number score-number-total">{total}</span> özellikten <span class="score-number score-number-known">{known}</span>
-          tanesinden haberdarsınız, bu sizi katılanlar arasında <span class="score-number score-number-ranking">{knowledgeRankingFromTop}%</span>
+          tanesinden haberdarsın, bu seni katılanlar arasında <span class="score-number score-number-ranking">{knowledgeRankingFromTop}%</span>
           arasına yerleştiriyor.
     - key: thanks.share_on_twitter
       t: Twitter'da Paylaşın
@@ -128,27 +128,22 @@ translations:
     - key: sections.user_info.title
       t: Hakkınızda
     - key: sections.user_info.description
-      t: Gerçek sizi tanıyalım.
-      
-    - key: sections.features.title
-      t: Özellikler
-    - key: sections.features.description
-      t: Sözdizimi, anahtar kelimeler, ve dildeki diğer özellikler.
+      t: Gerçek seni tanıyalım.
 
     - key: sections.resources.title
       t: Kaynaklar
     - key: sections.resources.description
-      t: Hangi {topic} kaynaklarına başvurursunuz?
+      t: Hangi {topic} kaynaklarına başvurursun?
 
     - key: sections.opinions.title
       t: Görüşler
     - key: sections.opinions.description
-      t: '{topic} için şu anki genel durum konusunda ne hissediyorsunuz?'
+      t: '{topic} için şu anki durumlar konusunda ne hissediyorsun?'
 
     - key: sections.other_tools.title
       t: Diğer Araçlar
     - key: sections.other_tools.description
-      t: Bu araçlar ve teknolojiler arasında sadece düzenli olarak kullandıklarını işaretleyin.
+      t: Bu araçlar ve teknolojiler arasında sadece düzenli olarak kullandıklarını işaretle.
 
     ###########################################################################
     # Options
@@ -228,27 +223,15 @@ translations:
 
     # happiness
     - key: options.happiness.0
-      t: Hiç Memnun Değil
+      t: Çok Mutsuz
     - key: options.happiness.1
-      t: Memnun Değil
+      t: Mutsuz
     - key: options.happiness.2
       t: Nötr
     - key: options.happiness.3
-      t: Memnun
+      t: Mutlu
     - key: options.happiness.4
-      t: Çok Memnun
-
-    # happiness (short version)
-    - key: options.happiness.0.short
-      t: Hiç Memnun Değil
-    - key: options.happiness.1.short
-      t: Memnun Değil
-    - key: options.happiness.2.short
-      t: Nötr
-    - key: options.happiness.3.short
-      t: Memnun
-    - key: options.happiness.4.short
-      t: Çok Memnun
+      t: Çok Mutlu
 
     # opinions
     - key: options.opinions.0
@@ -366,7 +349,7 @@ translations:
     - key: options.job_title.back_end_developer 
       t: Arkayüz (Back-end) Geliştiricisi/Mühendisi
     - key: options.job_title.full_stack_developer 
-      t: Ön ve Arkayüz (Full Stack) Geliştiricisi/Mühendisi
+      t: Ön ve Arka Yüz (Full Stack) Geliştirici/Mühendis
     - key: options.job_title.web_developer 
       t: Web Geliştiricisi
     - key: options.job_title.web_designer 
@@ -490,12 +473,12 @@ translations:
     - key: tools.other_tools.description 
       t: Yukarıdaki listede belirtilmeyen ve mevcut bölüm için kullandığınız diğer seçenekler
     - key: tools.happiness 
-      t: Genel Memnuniyet
+      t: Genel Mutluluk
     - key: tools.happiness.description 
       t: >
-          Bir (hiç memnun değil) ile beş (çok memnun) arasında bir ölçekte, 
+          Bir (çok mutsuz) ile beş (çok mutlu) arasında bir ölçekte, 
           yukarıda listelenen seçeneklerle ilgili olarak olayların 
-          genel durumundan ne kadar memnunsunuz?
+          mevcut genel durumundan ne kadar memnunsunuz?
 
     ###########################################################################
     # Demographics (About You/User Info)
@@ -505,7 +488,7 @@ translations:
     - key: user_info.years_of_experience 
       t: Yıllık Deneyim
     - key: user_info.years_of_experience.description 
-      t: Bu alanı ne kadar süredir öğreniyorsunuz veya ne kadar süredir bu alanda çalışıyorsunuz?
+      t: Bu alanı ne kadar süredir öğreniyorsun veya ne kadar süredir bu alanda çalışıyorsun?
 
     # company size
     - key: user_info.company_size 
@@ -521,9 +504,9 @@ translations:
 
     # job title
     - key: user_info.job_title 
-      t: Ünvan
+      t: Job Title
     - key: user_info.job_title.description 
-      t: Partilerde kendini nasıl tanıtırsınız?
+      t: Partilerde kendini nasıl tanıtırsın?
 
     # javascript proficiency
 
@@ -551,7 +534,7 @@ translations:
 
     # skin tone/appearance
     - key: user_info.race_ethnicity
-      t: Irk & Etnik Köken
+      t: Race & Ethnicity # TODO
 
     # other info
     - key: user_info.how_did_user_find_out_about_the_survey 
@@ -570,7 +553,7 @@ translations:
     - key: tools_others.text_editors.description 
       t: Düzenli olarak hangi metin düzenleyicisini/düzenleyicilerini kullanıyorsunuz?
     - key: tools_others.text_editors.others 
-      t: Diğer Metin Düzenleyiciler
+      t: Diğer Metin Düzenleyicileri
     - key: tools_others.text_editors.others.description 
       t: Diğer yanıtlar (serbest yanıt alanı).
 
@@ -618,7 +601,7 @@ translations:
     - key: resources.blogs_news_magazines 
       t: Bloglar ve Dergiler
     - key: resources.blogs_news_magazines.description 
-      t: Hangi blog/dergi/vb. lerini okuyorsunuz ?
+      t: Hangi blog/dergi/vb. lerini okuyorsun ?
     - key: resources.blogs_news_magazines.others 
       t: Diğer Bloglar ve Dergiler
     - key: resources.blogs_news_magazines.others.description 
@@ -628,7 +611,7 @@ translations:
     - key: resources.sites_courses 
       t: Siteler ve Kurslar
     - key: resources.sites_courses.description 
-      t: Hangi siteler/kurslar/vb. dan faydalanırsınız
+      t: Hangi siteler/kurslar/vb. dan faydalanırsın
     - key: resources.sites_courses.others 
       t: Diğer Siteler ve Kurslar
     - key: resources.sites_courses.others.description 
